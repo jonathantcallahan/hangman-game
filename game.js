@@ -1,7 +1,3 @@
-
-
-document.onkeyup = function(event) {
-	
 var winCount = 0;
 
 var remainingGuessesTracker = 12;
