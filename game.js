@@ -26,15 +26,24 @@ document.onkeyup = function(event) {
     // assigns the variable alreadyGuesses to the guessed letters
     var alreadyGuessed = document.getElementById("guessed-letters");
 
+    var guesses = [];
+
+    alreadyGuessed.innerHTML = guesses;
+
+    //alreadyGuessed.innerHTML += event.key;
+
     document.onkeyup = function(event) {
 
-	    if ((randomWord.indexOf(event.key) === -1)) {
+    	for (var i = 12; i > 0; i--) {
 
-		    alreadyGuessed.innerHTML += event.key;
+		    if ((randomWord.indexOf(event.key) === -1) && (guesses.indexOf(event.key) === -1)) {
+			    // alreadyGuessed.innerHTML += event.key;
 
-			var remainingGuesses = document.getElementById("remaining-guesses");
-			remainingGuesses.textContent = remainingGuessesTracker;
+			    guesses.push(event.key);
 
+				var remainingGuesses = document.getElementById("remaining-guesses");
+				remainingGuesses.textContent = i;
+			}
 	    }
 	}
 	
