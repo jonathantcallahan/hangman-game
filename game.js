@@ -6,6 +6,17 @@ var wins = document.getElementById("wins");
 
 wins.textContent = winCount;
 
+function iterateScore() {
+	remainingGuessesTracker--;
+}
+
+// assigns the variable alreadyGuesses to the guessed letters
+var alreadyGuessed = document.getElementById("guessed-letters");
+
+function resetScore() {
+	remainingGuessesTracker = 12;
+	alreadyGuessed.textContent = ("");
+}
 
 document.onkeyup = function(event) {
 //	if (event.key === )
@@ -23,28 +34,36 @@ document.onkeyup = function(event) {
     // set text for the current word field equal to the random word and turns it into a string  
     word.innerHTML = randomWord.split('');  
 
-    // assigns the variable alreadyGuesses to the guessed letters
-    var alreadyGuessed = document.getElementById("guessed-letters");
+  
 
-    var guesses = [];
+    //var guesses = [];
 
-    alreadyGuessed.innerHTML = guesses;
+    //alreadyGuessed.innerHTML = guesses;
 
-    //alreadyGuessed.innerHTML += event.key;
+    alreadyGuessed.textContent = event.key;
 
-    document.onkeyup = function(event) {
+    alreadyGuessed.textContent += event.key;
 
-    	for (var i = 12; i > 0; i--) {
 
-		    if ((randomWord.indexOf(event.key) === -1) && (guesses.indexOf(event.key) === -1)) {
-			    // alreadyGuessed.innerHTML += event.key;
 
-			    guesses.push(event.key);
+	document.onkeyup = function(event) {
 
-				var remainingGuesses = document.getElementById("remaining-guesses");
-				remainingGuesses.textContent = i;
+	    if (randomWord.indexOf(event.key) < 0) {
+		    
+		    alreadyGuessed.textContent += event.key;
+
+		    //guesses.push(event.key);
+			var remainingGuesses = document.getElementById("remaining-guesses");
+			remainingGuesses.textContent = remainingGuessesTracker;
+			iterateScore();
+
+			if (remainingGuessesTracker === 0) {
+				resetScore();
 			}
-	    }
+
+		}
+
+
 	}
 	
 
