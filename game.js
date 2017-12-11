@@ -33,7 +33,6 @@ document.onkeyup = function(event) {
       
     // set text for the current word field equal to the random word and turns it into a string  
     word.innerHTML = randomWord.split('');  
-
   
 
     //var guesses = [];
@@ -48,7 +47,7 @@ document.onkeyup = function(event) {
 
 	document.onkeyup = function(event) {
 
-	    if (randomWord.indexOf(event.key) < 0) {
+	    if ((randomWord.indexOf(event.key) < 0) && (alreadyGuessed.textContent.indexOf(event.key) < 0)) {
 		    
 		    alreadyGuessed.textContent += event.key;
 
