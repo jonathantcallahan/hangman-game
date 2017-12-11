@@ -6,6 +6,10 @@ var wins = document.getElementById("wins");
 
 wins.textContent = winCount;
 
+// var losses = document.getElementById("losses");
+
+// losses.textContent = lossesCount;
+
 function iterateScore() {
 	remainingGuessesTracker--;
 }
@@ -16,6 +20,11 @@ var alreadyGuessed = document.getElementById("guessed-letters");
 function resetScore() {
 	remainingGuessesTracker = 12;
 	alreadyGuessed.textContent = ("");
+
+	var wordList = ["nachos","pizza","pasta","tacos","thai","tots"];
+	var randomWord = wordList[Math.floor(Math.random() * wordList.length)];
+	var word = document.getElementById("hidden-word"); 
+    word.innerHTML = randomWord.split(''); 
 }
 
 document.onkeyup = function(event) {
@@ -58,6 +67,10 @@ document.onkeyup = function(event) {
 
 			if (remainingGuessesTracker === 0) {
 				resetScore();
+			}
+
+			if (randomWord.indexOf(event.key) > -1) {
+				randomWord.indexOf(event.key) = test;
 			}
 
 		}
