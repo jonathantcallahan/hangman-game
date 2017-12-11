@@ -69,10 +69,6 @@ document.onkeyup = function(event) {
 				resetScore();
 			}
 
-			if (randomWord.indexOf(event.key) > -1) {
-				randomWord.indexOf(event.key) = test;
-			}
-
 		}
 
 
