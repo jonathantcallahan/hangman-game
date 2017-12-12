@@ -26,7 +26,7 @@ function resetScore() {
 
 	var underscoreArray = [];
 
-	for (var i = 0; i < wordList.length; i++) {
+	for (var i = 0; i < randomWord.length; i++) {
 		underscoreArray.push("_");
 	}  
 
@@ -57,12 +57,12 @@ document.onkeyup = function(event) {
 
     //NEW RANDOM WORD PLACEHOLDER GENERATOR
 
-    	var wordList = ["nachos","pizza","pasta","tacos","thai","tots"];
+    var wordList = ["nachos","pizza","pasta","tacos","thai","tots"];
 	var randomWord = wordList[Math.floor(Math.random() * wordList.length)];
 
 	var underscoreArray = [];
 
-	for (var i = 0; i < wordList.length; i++) {
+	for (var i = 0; i < randomWord.length; i++) {
 		underscoreArray.push("_");
 	}  
 
