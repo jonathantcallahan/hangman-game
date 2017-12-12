@@ -14,6 +14,10 @@ function iterateScore() {
 	remainingGuessesTracker--;
 }
 
+function interateWins() {
+	winCount++;
+}
+
 // assigns the variable alreadyGuesses to the guessed letters
 var alreadyGuessed = document.getElementById("guessed-letters");
 
@@ -90,18 +94,15 @@ document.onkeyup = function(event) {
 
 			if (remainingGuessesTracker === 0) {
 				resetScore();
-			}
+			} 
 
-			if (randomWord.indexOf(event.key) > -1) {
-				underscoreArray[randomWord.indexOf(event.key)] = event.key;
-			}	
+		} 
 
-		}
-
-
+		//if (randomWord.indexOf(event.key) > -1) {
+		//	underscoreArray[randomWord.indexOf(event.key)] = event.key;
+		//	iterateWins();
+		//}
 	}
-	
-
 	
 } 
  
