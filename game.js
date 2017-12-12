@@ -61,6 +61,8 @@ document.onkeyup = function(event) {
 
     //NEW RANDOM WORD PLACEHOLDER GENERATOR
 
+    //Why doesn't the word reset every a button is pressed?
+
     var wordList = ["nachos","pizza","pasta","tacos","thai","tots"];
 	var randomWord = wordList[Math.floor(Math.random() * wordList.length)];
 
@@ -96,10 +98,13 @@ document.onkeyup = function(event) {
 				resetScore();
 			} 
 
-		} 
+		} else {
+			underscoreArray[randomWord.indexOf(event.key)] = event.key;
+			wordPlaceHolder.innerHTML = underscoreArray; 
+		}
 
 		//if (randomWord.indexOf(event.key) > -1) {
-		//	underscoreArray[randomWord.indexOf(event.key)] = event.key;
+	
 		//	iterateWins();
 		//}
 	}
