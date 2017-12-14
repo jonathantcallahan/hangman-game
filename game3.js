@@ -2,7 +2,7 @@ var winCount = 0;
 var remainingGuess = 12;
 var underscoreArray = [];
 var wordList = ["nachos","tacos","thai","pie"];
-// var randomWord = wordList[Math.floor(Math.random() * wordList.length)];
+var randomWord = wordList[Math.floor(Math.random() * wordList.length)];
 var wins = document.getElementById("wins");
 var guessesDisplay = document.getElementById("remaining-guesses");
 var hiddenArray = document.getElementById("hidden-word");
@@ -10,7 +10,6 @@ hiddenArray.innerHTML = underscoreArray;
 var guessedLetters = document.getElementById("guessed-letters");
 
 function setWord() {
-	var randomWord = wordList[Math.floor(Math.random() * wordList.length)];
 	guessedLetters.innerHTML = ""
 	underscoreArray = [];
 	for (var i = 0; i < randomWord.length; i++) {
@@ -45,7 +44,6 @@ setWord();
 
 document.onkeyup = function(event) {
 
-		var randomWord = wordList[Math.floor(Math.random() * wordList.length)];
 		var userGuess = event.key;
 		userGuessIndex = randomWord.indexOf(userGuess)
 
