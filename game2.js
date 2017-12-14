@@ -24,6 +24,7 @@ function loss() {
 }
 
 function iterateScore() {
+	remainingGuess.textContent = "";
 	winCount++;
 	remainingGuess = 12;
 	wins.textContent = winCount;
