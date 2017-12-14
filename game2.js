@@ -9,6 +9,7 @@ var hiddenArray = document.getElementById("hidden-word");
 var guessedLetters = document.getElementById("guessed-letters");
 
 function setWord() {
+	guessedLetters = "";
 	underscoreArray = [];
 	for (var i = 0; i < randomWord.length; i++) {
 		underscoreArray.push("_");
@@ -24,7 +25,7 @@ function loss() {
 }
 
 function iterateScore() {
-	remainingGuess.textContent = "";
+	remainingGuess.textContent = ""
 	winCount++;
 	remainingGuess = 12;
 	wins.textContent = winCount;
