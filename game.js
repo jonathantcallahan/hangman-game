@@ -15,6 +15,7 @@ function iterateScore() {
 }
 
 function interateWins() {
+	wins.textContent = winCount;
 	winCount++;
 }
 
@@ -36,6 +37,18 @@ function resetScore() {
 
 	var wordPlaceHolder = document.getElementById("hidden-word"); 
     wordPlaceHolder.innerHTML = underscoreArray; 
+}
+
+function randomWord() {
+	var wordList = ["nachos","pizza","pasta","tacos","thai","tots"];
+	var randomWord = wordList[Math.floor(Math.random() * wordList.length)];
+
+	var underscoreArray = [];
+
+	for (var i = 0; i < randomWord.length; i++) {
+		underscoreArray.push("_");
+	}
+
 }
 
 document.onkeyup = function(event) {
@@ -63,13 +76,17 @@ document.onkeyup = function(event) {
 
     //Why doesn't the word reset every a button is pressed?
 
-    var wordList = ["nachos","pizza","pasta","tacos","thai","tots"];
+    var wordList = ["nachos","pie","tacos","thai"];
 	var randomWord = wordList[Math.floor(Math.random() * wordList.length)];
 
-	var underscoreArray = [];
+	var underscoreArray = ["word"];
 
 	for (var i = 0; i < randomWord.length; i++) {
+		if (underscoreArray[0] === "word") {
+		underscoreArray.pop();
+	 }
 		underscoreArray.push("_");
+		console.log(typeof underscoreArray);
 	}  
 
 	var wordPlaceHolder = document.getElementById("hidden-word"); 
@@ -101,6 +118,13 @@ document.onkeyup = function(event) {
 		} else {
 			underscoreArray[randomWord.indexOf(event.key)] = event.key;
 			wordPlaceHolder.innerHTML = underscoreArray; 
+			//console.log("u array" + underscoreArray.split(','));
+			console.log("random word" + randomWord.split(','));
+			console.log(typeof underscoreArray);
+			if (underscoreArray == randomWord.split(',')) {
+				iterateWins();
+
+			}
 		}
 
 		//if (randomWord.indexOf(event.key) > -1) {
