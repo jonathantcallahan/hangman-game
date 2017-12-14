@@ -2,13 +2,15 @@ var winCount = 0;
 var remainingGuess = 12;
 var underscoreArray = [];
 var wordList = ["nachos","tacos","thai","pie"];
-var randomWord = wordList[Math.floor(Math.random() * wordList.length)];
+// var randomWord = wordList[Math.floor(Math.random() * wordList.length)];
 var wins = document.getElementById("wins");
 var guessesDisplay = document.getElementById("remaining-guesses");
 var hiddenArray = document.getElementById("hidden-word");
+hiddenArray.innerHTML = underscoreArray;
 var guessedLetters = document.getElementById("guessed-letters");
 
 function setWord() {
+	var randomWord = wordList[Math.floor(Math.random() * wordList.length)];
 	guessedLetters.innerHTML = ""
 	underscoreArray = [];
 	for (var i = 0; i < randomWord.length; i++) {
@@ -39,21 +41,24 @@ function iterateGuess() {
 
 }
 
+setWord();
+
 document.onkeyup = function(event) {
 
-	setWord();
-
-	document.onkeyup = function(event) {
+		var randomWord = wordList[Math.floor(Math.random() * wordList.length)];
 		var userGuess = event.key;
 		userGuessIndex = randomWord.indexOf(userGuess)
 
 		if (userGuessIndex > -1) {
 			underscoreArray[userGuessIndex] = userGuess;
 			hiddenArray.innerHTML = underscoreArray;
-		} else if (guessedLetters.innerHTML.indexOf(userGuess) < 0) {
+		}  
+
+		if (guessedLetters.innerHTML.indexOf(userGuess) < 0) {
 			guessedLetters.innerHTML = guessedLetters.innerHTML + userGuess;
 			iterateGuess();
-		}
+		} 
+
 
 		if (remainingGuess === 0) {
 			loss();
@@ -61,10 +66,7 @@ document.onkeyup = function(event) {
 
 		if (underscoreArray.indexOf('_') < 0) {
 			iterateScore();
+			setWord();
 		}
-
-
-	}
-		
 
 } 
