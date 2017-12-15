@@ -10,6 +10,7 @@ hiddenArray.innerHTML = underscoreArray;
 var guessedLetters = document.getElementById("guessed-letters");
 
 function setWord() {
+	randomWord = wordList[Math.floor(Math.random() * wordList.length)];
 	guessedLetters.innerHTML = ""
 	underscoreArray = [];
 	for (var i = 0; i < randomWord.length; i++) {
